@@ -1,6 +1,7 @@
 using GestorInventarioPrimaria.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using GestorInventarioPrimaria.DTOs;
 
 namespace GestorInventarioPrimaria.Controllers
 {
@@ -54,20 +55,5 @@ namespace GestorInventarioPrimaria.Controllers
             if (statusCode == 404) return NotFound(data);
             return Ok(data);
         }
-    }
-
-    // Los DTOs se quedan aquí para no romper el modelo que ya usas
-    public class SolicitudAulaDto
-    {
-        public string Matricula { get; set; } = "";
-        public DateTime Fecha { get; set; }
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFin { get; set; }
-        public string Motivo { get; set; } = "";
-    }
-
-    public class MotivoDto 
-    { 
-        public string Motivo { get; set; } = ""; 
     }
 }

@@ -2,6 +2,7 @@
 using GestorInventarioPrimaria.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using GestorInventarioPrimaria.DTOs;
 
 namespace GestorInventarioPrimaria.Controllers
 {
@@ -160,12 +161,5 @@ namespace GestorInventarioPrimaria.Controllers
             
             return PhysicalFile(rutaCompleta, mimeType);
         }
-    }
-
-    // DTO para atrapar los datos del frontend (Mantenemos esto aquí porque es la "firma" del controlador)
-    public class CambioPasswordDto {
-        public required string Username { get; set; }
-        public required string PasswordActual { get; set; }
-        public required string PasswordNueva { get; set; }
     }
 }

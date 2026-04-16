@@ -1,4 +1,4 @@
-using GestorInventarioPrimaria.Controllers;
+using GestorInventarioPrimaria.DTOs;
 
 namespace GestorInventarioPrimaria.Interfaces
 {

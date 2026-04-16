@@ -1,4 +1,4 @@
-using GestorInventarioPrimaria.Controllers; // Para el DTO CambioPasswordDto
+using GestorInventarioPrimaria.DTOs;
 using GestorInventarioPrimaria.Models;
 using Microsoft.AspNetCore.Http; // Para IFormFile
 

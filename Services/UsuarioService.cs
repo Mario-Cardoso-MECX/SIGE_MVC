@@ -1,4 +1,4 @@
-using GestorInventarioPrimaria.Controllers;
+using GestorInventarioPrimaria.DTOs;
 using GestorInventarioPrimaria.Data;
 using GestorInventarioPrimaria.Interfaces;
 using GestorInventarioPrimaria.Models;

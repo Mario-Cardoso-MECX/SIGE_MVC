@@ -1,5 +1,6 @@
 ﻿using GestorInventarioPrimaria.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using GestorInventarioPrimaria.DTOs;
 
 namespace GestorInventarioPrimaria.Controllers
 {
@@ -29,12 +30,5 @@ namespace GestorInventarioPrimaria.Controllers
             if (statusCode == 401) return Unauthorized(data);
             return Ok();
         }
-    }
-
-    // El DTO se queda aquí porque es la estructura de datos que recibe el controlador
-    public class LoginRequest 
-    { 
-        public required string Username { get; set; } 
-        public required string Password { get; set; } 
     }
 }
