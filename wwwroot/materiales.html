@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Materiales</title>
+    <script src="js/auth-guard.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css"> <link rel="stylesheet" href="css/materiales.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="header-title">
+                    <h1><i class="fas fa-boxes"></i> Inventario</h1>
+                </div>
+                <div class="user-badge">
+                    <i class="fas fa-user-circle icon-usuario"></i>
+                    <span id="nombreUsuarioSaludo">Cargando...</span>
+                </div>
+            </header>
+
+            <div class="card-accion">
+                <div class="card-header">
+                    <h2 id="tituloForm"><i class="fas fa-edit"></i> Gestionar Material / Libro</h2>
+                </div>
+                <form id="formMaterial" onsubmit="event.preventDefault(); guardarMaterial();">
+
+                    <input type="hidden" id="txtIdMaterial" value="">
+
+                    <div class="form-padding">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label><i class="fas fa-book"></i> Título del Material / Libro</label>
+                            <input type="text" id="txtTitulo" class="input-grande" placeholder="Nombre descriptivo..." required>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label><i class="fas fa-tags"></i> Categoría</label>
+                                <select id="selCategoria" class="input-grande">
+                                    <option value="Libro">Libro</option>
+                                    <option value="Material Deportivo">Deportes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-cubes"></i> Stock Inicial</label>
+                                <input type="number" id="txtStock" class="input-grande" min="0" value="1" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" id="btnGuardar" class="btn-verde">
+                            <i class="fas fa-check-circle"></i> Guardar Material
+                        </button>
+                        <button type="button" onclick="limpiarFormulario()" class="btn-cancelar">
+                            <i class="fas fa-undo"></i> Limpiar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="search-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div class="input-wrapper" style="flex: 1; min-width: 250px;">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="txtBuscarInv" class="input-grande" placeholder="Buscar Material / Libro..." autocomplete="off">
+                </div>
+                
+                <button id="btnExportarExcelMat" class="btn-verde" style="width: auto; margin: 0; background-color: #27ae60; border-bottom: 3px solid #1e8449;" onclick="exportarExcel('tablaInventario', 'Reporte_Inventario')">
+                    <i class="fas fa-file-excel"></i> Descargar Excel
+                </button>
+            </div>
+
+            <div class="filter-chips">
+                <button onclick="filtrarPorCategoria('')" class="chip active">Todos</button>
+                <button onclick="filtrarPorCategoria('Libro')" class="chip"><i class="fa-solid fa-book"></i> Libros</button>
+                <button onclick="filtrarPorCategoria('Material Deportivo')" class="chip"><i class="fa-regular fa-futbol"></i> Deportes</button>
+                </div>
+
+            <div class="tabla-container">
+                <table class="tabla-compacta" id="tablaInventario">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Categoría</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaInventarioBody">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/e2dc84faef.js" crossorigin="anonymous"></script>
+    <script src="js/config.js"></script>
+    <script src="js/materiales.js"></script>
+    <script src="js/saludoUsuario.js"></script>
+    <script src="js/ui-constructor.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/auth-guard.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Principal - Gestor Primaria</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="header-title">
+                    <h1><i class="fa-solid fa-house"></i> Panel de Control</h1>
+                </div>
+                <div class="user-badge">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="nombreUsuarioSaludo">Cargando...</span>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <div class="card card-blue">
+                    <div class="card-info">
+                        <h3 id="lblTotalAlumnos">0</h3>
+                        <p>Total Alumnos</p>
+                    </div>
+                    <i class="fas fa-user-graduate card-icon"></i>
+                </div>
+
+                <div class="card card-green">
+                    <div class="card-info">
+                        <h3 id="lblTotalTitulos">0</h3>
+                        <p>Materiales / Inventario</p>
+                    </div>
+                    <i class="fas fa-book card-icon"></i>
+                </div>
+
+                <div class="card card-orange">
+                    <div class="card-info">
+                        <h3 id="lblPrestamos">0</h3>
+                        <p>Préstamos Activos</p>
+                    </div>
+                    <i class="fas fa-hand-holding card-icon"></i>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3><i class="fas fa-trophy"></i> Top 5 Libros Más Leídos</h3>
+                    <div class="canvas-container">
+                        <canvas id="topLibrosChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3><i class="fas fa-chart-bar"></i> Préstamos por Mes (Este Año)</h3>
+                    <div class="canvas-container">
+                        <canvas id="prestamosMesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/e2dc84faef.js" crossorigin="anonymous"></script>
+    <script src="js/config.js"></script>
+    <script src="js/ui-constructor.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/saludoUsuario.js"></script>
+</body>
+</html>

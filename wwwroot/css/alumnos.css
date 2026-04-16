@@ -1,0 +1,297 @@
+:root {
+    --azul-primario: #2c3e50;
+    --azul-claro: #3498db;
+    --verde-alegre: #27ae60;
+    --verde-hover: #2ecc71;
+    --rojo-acento: #e74c3c;
+    --blanco: #ffffff;
+    --gris-fondo: #f4f7f6;
+    --sombra: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-volver {
+    text-decoration: none;
+    background-color: var(--rojo-acento);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: transform 0.2s, background 0.2s;
+    font-weight: bold;
+}
+
+.btn-volver:hover {
+    background-color: #c0392b;
+    transform: translateX(-5px);
+}
+
+/* Card de Registro */
+.card-accion {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    margin-bottom: 40px;
+    border-top: 5px solid var(--verde-alegre);
+}
+
+.card-header {
+    background: #f8f9fa;
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h2 {
+    color: var(--verde-alegre);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Formulario */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--azul-primario);
+}
+
+.input-grande {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-grande:focus {
+    border-color: var(--azul-claro);
+    outline: none;
+}
+
+/* --- NUEVO GRUPO DE BOTONES (50/50 en PC) --- */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin: 0 25px 25px 25px;
+}
+
+.button-group .btn-verde, .button-group .btn-cancelar {
+    flex: 1; /* Ocupan mitad y mitad */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Respaldo para cuando el boton verde esta solo o fuera del grupo */
+#formNuevoAlumno > .btn-verde {
+    width: calc(100% - 50px);
+    margin: 0 25px 25px 25px;
+    padding: 15px;
+}
+
+.btn-verde {
+    background-color: var(--verde-alegre);
+    color: white;
+    border: none;
+}
+
+.btn-verde:hover {
+    background-color: var(--verde-hover);
+}
+
+.btn-cancelar {
+    background-color: #6b7280;
+    color: white;
+    border: none;
+}
+
+.btn-cancelar:hover {
+    background-color: #4b5563;
+}
+
+/* Buscador (DISEÑO ORIGINAL DE PC) */
+.search-container {
+    margin-bottom: 25px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: var(--azul-claro);
+}
+
+.search-container .input-grande {
+    padding-left: 45px;
+    border-radius: 25px;
+    border-color: var(--azul-claro);
+}
+
+/* --- TABLA --- */
+.tabla-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    max-height: 60vh;
+    min-height: 55vh;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th:nth-child(1) { width: 15%; }
+th:nth-child(2) { width: 35%; }
+th:nth-child(3) { width: 15%; }
+th:nth-child(4) { width: 35%; }
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--azul-primario);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+    white-space: nowrap;        
+    overflow: hidden;           
+    text-overflow: ellipsis;   
+}
+
+td:last-child {
+    white-space: normal;
+    overflow: visible;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f9ff;
+}
+
+tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+.resultado-msg {
+    padding: 0 25px 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.acciones-flex {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+td button {
+    width: auto !important; 
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    border: none !important; 
+    color: white !important; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-historial { background-color: #3498db !important; } 
+.btn-historial:hover { background-color: #2980b9 !important; }
+
+.btn-editar-naranja { background-color: #f39c12 !important; } 
+.btn-editar-naranja:hover { background-color: #d68910 !important; }
+
+.btn-borrar-rojo { background-color: #e74c3c !important; } 
+.btn-borrar-rojo:hover { background-color: #c0392b !important; }
+
+/* =========================================
+   🔥 RESPONSIVE: MAGIA SOLO PARA CELULAR 🔥
+   ========================================= */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Adaptación del nuevo grupo de botones para que se apilen en celular */
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table {
+        table-layout: auto !important; 
+        min-width: 900px !important;
+    }
+
+    .tabla-container {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    /* Tu solución de Grid aplicada EXCLUSIVAMENTE a móviles */
+    .search-container > div {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* Buscador ocupa todo */
+    .search-container .input-wrapper {
+        grid-column: 1 / -1 !important;
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    /* Selects mitad y mitad */
+    #selFiltroGrado,
+    #selFiltroLetra {
+        width: 100% !important;
+    }
+
+    /* BOTONES EN GRID 2x2 */
+    .search-container > div:last-child {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 15px;
+    }
+
+    /* Botones ocupan su celda */
+    .search-container button {
+        width: 100% !important;
+    }
+}

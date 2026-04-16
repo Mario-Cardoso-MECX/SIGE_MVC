@@ -1,0 +1,259 @@
+:root {
+    /* El azul alegre que elegiste */
+    --sidebar-bg: #007BFF;         
+    /* Un azul más claro y suave para el hover */
+    --sidebar-hover: #3395ff;      
+    /* Azul muy oscuro para el indicador de página activa (contraste alto) */
+    --sidebar-active: #002982;     
+    /* Blanco puro para máxima legibilidad sobre azul */
+    --sidebar-text: #ffffff;       
+    --sidebar-width: 260px;
+}
+
+/* Contenedor Principal (Layout) */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; /* Evita que la pantalla baile hacia los lados en celular */
+}
+
+/* Estructura del Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* Cambiamos de sticky a fixed para que flote en celulares */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    /* Sombra más sutil para colores claros */
+    box-shadow: 2px 0 15px rgba(0, 123, 255, 0.2);
+}
+
+/* Cabecera del Sidebar */
+.sidebar-header {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.sidebar-header i {
+    font-size: 2rem;
+    color: white; /* Blanco para destacar en el azul */
+}
+
+.sidebar-header span {
+    font-size: 1.2rem;
+    font-weight: 800; /* Letra más gordita */
+    line-height: 1.2;
+}
+
+/* Menú de Navegación */
+.menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Empuja el footer hacia abajo */
+    gap: 5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8); /* Blanco ligeramente transparente para no cansar la vista */
+    padding: 15px 20px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+    width: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7); /* Iconos un poco más apagados que el texto */
+    transition: color 0.3s;
+}
+
+/* Estado Hover */
+.menu a:hover {
+    background-color: var(--sidebar-hover);
+    color: white;
+    padding-left: 30px; /* Pequeño efecto de desplazamiento */
+}
+
+/* Estado Activo (Página Actual) */
+.menu a.active {
+    /* Fondo oscuro para que se note la selección sobre el azul claro */
+    background-color: rgba(0, 41, 130, 0.2);
+    color: white;
+    border-left-color: var(--sidebar-active);
+    font-weight: 700;
+}
+
+.menu a.active i {
+    color: white;
+}
+
+/* Footer y Botón de Salida */
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-logout {
+    width: 100%;
+    /* Rojo más claro para que no choque tanto con el azul brillante */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-logout:hover {
+    background: #e74c3c; /* Al pasar el mouse sí se pone rojo alerta */
+    border-color: #e74c3c;
+}
+
+/* Contenido Principal */
+.main-content {
+    flex-grow: 1;
+    margin-left: var(--sidebar-width); /* Respeta el espacio del menú en PC */
+    width: calc(100% - var(--sidebar-width));
+    padding: 30px;
+    background-color: #f4f7f6; /* Gris muy clarito para que resalten las tarjetas blancas */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+/* Top Bar (Encabezado superior blanco) */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Sombra súper suave */
+    margin-bottom: 30px;
+}
+
+.header-title h1 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-title h1 i {
+    color: var(--sidebar-bg); /* Usa el azul del menú para el ícono del título */
+}
+
+/* --- ESTILOS NUEVOS PARA EL BOTÓN HAMBURGUESA --- */
+.btn-menu-mobile {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--sidebar-bg);
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* --- MAGIA RESPONSIVA (CELULARES Y TABLETS PEQUEÑAS) --- */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Oculta el menú a la izquierda */
+    }
+    
+    .sidebar.open {
+        transform: translateX(0); /* Lo muestra cuando tiene la clase open */
+    }
+
+    .main-content {
+        margin-left: 0; /* Ya no empuja el contenido */
+        width: 100%;
+        padding: 15px; /* Menos padding en celular */
+    }
+
+    .sidebar-overlay.active {
+        display: block; /* Muestra el fondo oscuro */
+    }
+
+    /* --- REESTRUCTURACIÓN TOP BAR CELULAR --- */
+    .top-bar {
+        padding: 15px;
+        flex-wrap: wrap; /* Permitimos que baje a una 2da línea */
+        justify-content: flex-start; /* Todo alineado a la izquierda por defecto */
+        align-items: center;
+    }
+
+    /* 1. Botón hamburguesa: se queda a la izquierda */
+    .btn-menu-mobile {
+        display: block;
+        margin: 0 15px 0 0;
+    }
+
+    /* 2. Título (Ej: Dashboard): Lo ponemos a lado del botón pero centrado en el resto del espacio */
+    .header-title {
+        flex-grow: 1; /* Toma el espacio que sobra a la derecha del botón */
+        display: flex;
+        justify-content: center; /* Centra el texto en ese espacio sobrante */
+    }
+
+    .header-title h1 {
+        font-size: 1.3rem;
+    }
+
+    /* 3. Usuario: Obligado a bajar a una 2da línea debajo del botón y título */
+    .user-badge {
+        width: 100%; /* Toma todo el ancho para forzar la bajada */
+        display: flex;
+        justify-content: center; /* Centrado absoluto */
+        align-items: center;
+        gap: 8px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #e2e8f0; /* Linea separadora */
+    }
+
+    .user-badge span {
+        font-size: 0.95rem;
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

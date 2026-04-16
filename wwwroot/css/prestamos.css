@@ -1,0 +1,288 @@
+:root {
+    --azul-primario: #2c3e50;
+    --azul-claro: #3498db;
+    --verde-alegre: #27ae60;
+    --naranja-acento: #27ae60;
+    --rojo-acento: #e74c3c;
+    --blanco: #ffffff;
+    --gris-fondo: #f8f9fa;
+    --sombra: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Contenedores Principales --- */
+.card-accion {
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    overflow: visible;
+    margin-bottom: 30px;
+    border-top: 5px solid var(--naranja-acento); /* Naranja para diferenciar módulo */
+}
+
+.card-header {
+    background: var(--gris-fondo);
+    padding: 15px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h2 {
+    color: var(--naranja-acento);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.form-padding {
+    padding: 25px;
+    padding-bottom: 40px;
+}
+
+/* --- Inputs y Formularios --- */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--azul-primario);
+}
+
+.input-grande {
+    width: 100%;
+    padding: 12px 12px 12px 45px; /* Espacio para el icono */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-size: 1rem;
+}
+
+.input-grande:focus {
+    border-color: var(--naranja-acento);
+    outline: none;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: #94a3b8;
+    z-index: 5;
+}
+
+/* --- Botones unificados --- */
+.btn-verde {
+    width: 100%;
+    background-color: var(--verde-alegre);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-verde:hover { background-color: #2ecc71; }
+
+.btn-rojo {
+    background-color: var(--rojo-acento);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-rojo:hover { background-color: #c0392b; }
+
+/* --- Panel Dividido --- */
+.panel-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.panel-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(0.5);
+}
+
+/* --- Tablas estilo Alumnos --- */
+.tabla-container {
+    background: var(--blanco);
+    border-radius: 0 0 12px 12px;
+    max-height: 55vh; /* Altura máxima para no estirar la pantalla */
+    overflow-y: auto; /* Scroll vertical */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Encabezado congelado */
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--azul-primario);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:nth-child(even) { background-color: #f8fafc; }
+tbody tr:hover { background-color: #fff7ed; } /* Hover cálido para préstamos */
+
+/* --- Elementos Específicos de Préstamos --- */
+.estado-alumno {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #e0f2fe;
+    border-radius: 8px;
+    color: var(--azul-primario);
+    font-weight: bold;
+    display: none;
+}
+
+.filter-bar-orange {
+    background: #fff7ed;
+    padding: 15px 25px;
+    border-bottom: 1px solid #fed7aa;
+}
+
+/* --- BOTONES DE FILTRO TIPO PASTILLA --- */
+.chip {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+    background: #ffffff;
+    color: #475569;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chip:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+.chip.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Botón especial para los vencidos */
+.btn-vencidos.active {
+    background: #dc2626 !important; /* Rojo intenso */
+    border-color: #dc2626 !important;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3) !important;
+    color: white !important;
+}
+
+
+.sugerencias-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    z-index: 1000;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.resultado-msg {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-azul{
+    background-color: var(--azul-claro);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .panel-control { grid-template-columns: 1fr; }
+}
+
+/* --- MAGIA RESPONSIVA PRESTAMOS (Corregida) --- */
+@media (max-width: 768px) {
+    .form-padding { padding: 15px; }
+    .card-header h2 { font-size: 1.1rem; }
+    
+    .panel-control {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden; 
+    }
+    
+    .card-accion {
+        width: 100% !important;
+        max-width: 100% !important; 
+        box-sizing: border-box !important;
+    }
+
+    .tabla-container {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100% !important;
+        max-width: 100% !important; 
+    }
+    
+    table {
+        min-width: 800px !important;
+    }
+
+    /* 🔥 NUEVO AJUSTE: BOTONES DE FILTRO EN UNA SOLA LÍNEA 🔥 */
+    /* Aplicamos el flex directamente al contenedor .filter-bar-orange */
+    .filter-bar-orange {
+        display: flex !important;
+        flex-wrap: nowrap !important; /* Fuerza a quedarse en una sola línea */
+        overflow-x: auto !important;  /* Activa scroll horizontal */
+        -webkit-overflow-scrolling: touch; /* Scroll fluido en celulares */
+        align-items: center !important;
+        gap: 10px !important;
+        padding-bottom: 10px !important; /* Espacio para que la barra de scroll no estorbe */
+    }
+
+    /* Forzamos a TODOS los elementos (texto "Filtrar" y los chips) a no achicarse ni romperse */
+    .filter-bar-orange > * {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+}
