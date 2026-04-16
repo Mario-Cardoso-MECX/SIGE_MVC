@@ -1,3 +1,5 @@
+using System;
+
 namespace GestorInventarioPrimaria.DTOs
 {
     public class SolicitudAulaDto

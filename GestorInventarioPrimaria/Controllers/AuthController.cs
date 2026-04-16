@@ -1,6 +1,6 @@
-﻿using GestorInventarioPrimaria.Interfaces;
+﻿using GestorInventarioPrimaria.DTOs; // <--- LA BRÚJULA
+using GestorInventarioPrimaria.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using GestorInventarioPrimaria.DTOs;
 
 namespace GestorInventarioPrimaria.Controllers
 {
